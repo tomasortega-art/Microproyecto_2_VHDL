@@ -7,3 +7,8 @@ package pkg_system is
 constant DATA_WIDTH : integer := 8;
 constant ADDR_WIDTH : integer := 4;
 type memory_array is array (0 to (2**ADDR_WIDTH)-1) of std_logic_vector(DATA_WIDTH-1 downto 0);
+type fsm_state is (IDLE, READ_MEM, WRITE_MEM, DONE);
+end package pkg_system;
+
+package body pkg_system is
+end package body pkg_system;
