@@ -1,0 +1,17 @@
+# Archivos de Quartus
+db/
+incremental_db/
+output_files/
+*.qpf
+*.qsf
+*.qws
+
+# Archivos de ModelSim
+work/
+*.wlf
+transcript
+modelsim.ini
+
+# Archivos de sistema operativo
+.DS_Store
+Thumbs.db
