@@ -19,7 +19,6 @@ BEGIN
     BEGIN
         IF rising_edge(clk) THEN
             IF rst = '1' THEN
-                -- Reset seguro
                 sync_1 <= '0';
                 sync_2 <= '0';
                 sync_3 <= '0';
@@ -27,8 +26,6 @@ BEGIN
                 
                 sync_1 <= pir_in;
                 sync_2 <= sync_1;
-                
-                
                 sync_3 <= sync_2;
             END IF;
         END IF;
