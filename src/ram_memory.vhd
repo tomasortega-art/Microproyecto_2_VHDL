@@ -14,7 +14,19 @@ ENTITY ram_memory IS
 END ram_memory;
 
 ARCHITECTURE behavior OF ram_memory IS
-
+  
     SIGNAL ram_block : memory_array := (OTHERS => (OTHERS => '0'));
 BEGIN
+ 
+    PROCESS(clk)
+    BEGIN
+        IF rising_edge(clk) THEN
+            IF we = '1' THEN
+                ram_block(to_integer(unsigned(addr))) <= data_in;
+            END IF;
+        END IF;
+    END PROCESS;
 
+
+    data_out <= ram_block(to_integer(unsigned(addr)));
+END behavior;
