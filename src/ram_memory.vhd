@@ -12,3 +12,9 @@ ENTITY ram_memory IS
         data_out : OUT STD_LOGIC_VECTOR(DATA_WIDTH-1 DOWNTO 0)
     );
 END ram_memory;
+
+ARCHITECTURE behavior OF ram_memory IS
+
+    SIGNAL ram_block : memory_array := (OTHERS => (OTHERS => '0'));
+BEGIN
+
