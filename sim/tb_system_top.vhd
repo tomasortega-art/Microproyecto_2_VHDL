@@ -13,3 +13,10 @@ ARCHITECTURE behavior OF tb_system_top IS
     CONSTANT clk_period : TIME := 20 ns;
 
 BEGIN
+    UUT: ENTITY work.system_top
+        PORT MAP (
+            clk      => clk,
+            rst      => rst,
+            pir_in   => pir_in,
+            data_out => data_out
+        );
