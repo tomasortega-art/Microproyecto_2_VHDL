@@ -22,7 +22,7 @@ ARCHITECTURE structural OF system_top IS
 
 BEGIN
 
-  
+
     U_PIR: ENTITY work.pir_controller
         PORT MAP (
             clk      => clk,
@@ -31,6 +31,7 @@ BEGIN
             pir_tick => sig_pir_tick
         );
 
+ 
     U_FSM: ENTITY work.control_unit
         PORT MAP (
             clk         => clk,
@@ -50,3 +51,13 @@ BEGIN
             data_out => sig_rom_data
         );
 
+    U_RAM: ENTITY work.ram_memory
+        PORT MAP (
+            clk      => clk,
+            we       => sig_ram_we,
+            addr     => sig_addr_bus,
+            data_in  => sig_rom_data,
+            data_out => data_out -- Va directo a la salida de la FPGA (displays)
+        );
+
+END structural;
