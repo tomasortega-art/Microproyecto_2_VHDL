@@ -19,3 +19,13 @@ ARCHITECTURE structural OF system_top IS
     SIGNAL sig_ram_we   : STD_LOGIC;
     SIGNAL sig_addr_bus : STD_LOGIC_VECTOR(ADDR_WIDTH-1 DOWNTO 0);
     SIGNAL sig_rom_data : STD_LOGIC_VECTOR(DATA_WIDTH-1 DOWNTO 0);
+
+BEGIN
+
+    U_PIR: ENTITY work.pir_controller
+        PORT MAP (
+            clk      => clk,
+            rst      => rst,
+            pir_in   => pir_in,
+            pir_tick => sig_pir_tick
+        );
