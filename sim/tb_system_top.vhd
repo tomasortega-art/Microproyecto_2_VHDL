@@ -7,12 +7,10 @@ END tb_system_top;
 
 ARCHITECTURE behavior OF tb_system_top IS
 
-    -- Declaración de señales para conectar a la entidad bajo prueba (UUT)
     SIGNAL clk      : STD_LOGIC := '0';
     SIGNAL rst      : STD_LOGIC := '0';
     SIGNAL pir_in   : STD_LOGIC := '0';
     SIGNAL data_out : STD_LOGIC_VECTOR(DATA_WIDTH-1 DOWNTO 0);
-
     CONSTANT clk_period : TIME := 20 ns;
 
 BEGIN
@@ -35,7 +33,23 @@ BEGIN
 
     stim_proc: PROCESS
     BEGIN
+
         rst <= '1';
         WAIT FOR 40 ns;
         rst <= '0';
         WAIT FOR 40 ns;
+
+        pir_in <= '1';
+        WAIT FOR 200 ns;
+        pir_in <= '0';
+        WAIT FOR 200 ns;
+
+        pir_in <= '1';
+        WAIT FOR 200 ns;
+        pir_in <= '0';
+        WAIT FOR 200 ns;
+
+        WAIT;
+    END PROCESS;
+
+END behavior;
