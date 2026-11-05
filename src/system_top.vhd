@@ -22,6 +22,7 @@ ARCHITECTURE structural OF system_top IS
 
 BEGIN
 
+
     U_PIR: ENTITY work.pir_controller
         PORT MAP (
             clk      => clk,
@@ -29,3 +30,14 @@ BEGIN
             pir_in   => pir_in,
             pir_tick => sig_pir_tick
         );
+
+    U_FSM: ENTITY work.control_unit
+        PORT MAP (
+            clk         => clk,
+            rst         => rst,
+            pir_event   => sig_pir_tick,
+            rom_read    => sig_rom_read,
+            ram_we      => sig_ram_we,
+            addr_out    => sig_addr_bus
+        );
+
