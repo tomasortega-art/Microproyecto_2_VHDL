@@ -31,7 +31,7 @@ BEGIN
             pir_tick => sig_pir_tick
         );
 
- 
+
     U_FSM: ENTITY work.control_unit
         PORT MAP (
             clk         => clk,
@@ -50,6 +50,7 @@ BEGIN
             addr     => sig_addr_bus,
             data_out => sig_rom_data
         );
+
 
     U_RAM: ENTITY work.ram_memory
         PORT MAP (
