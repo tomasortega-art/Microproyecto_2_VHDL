@@ -10,4 +10,6 @@ ARCHITECTURE behavior OF tb_system_top IS
     SIGNAL rst      : STD_LOGIC := '0';
     SIGNAL pir_in   : STD_LOGIC := '0';
     SIGNAL data_out : STD_LOGIC_VECTOR(DATA_WIDTH-1 DOWNTO 0);
+    CONSTANT clk_period : TIME := 20 ns;
+
 BEGIN
