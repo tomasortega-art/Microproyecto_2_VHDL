@@ -22,7 +22,7 @@ ARCHITECTURE structural OF system_top IS
 
 BEGIN
 
-
+  
     U_PIR: ENTITY work.pir_controller
         PORT MAP (
             clk      => clk,
@@ -39,5 +39,14 @@ BEGIN
             rom_read    => sig_rom_read,
             ram_we      => sig_ram_we,
             addr_out    => sig_addr_bus
+        );
+
+
+    U_ROM: ENTITY work.rom_memory
+        PORT MAP (
+            clk      => clk,
+            read_en  => sig_rom_read,
+            addr     => sig_addr_bus,
+            data_out => sig_rom_data
         );
 
